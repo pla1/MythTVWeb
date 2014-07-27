@@ -1,7 +1,9 @@
-<html>
+<!doctype html>
+<html data-ng-app="mythTVWebModule">
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
+<script src="js/controllers.js"></script>
 <script>
 var BACKEND="server0.pla.lcl";
 var PORT=6544;
@@ -10,15 +12,43 @@ function getRecordings() {
   $.ajax({
 	url: "http://"+BACKEND+":"+PORT+RECORDINGS_PATH, 
 	dataType: "json",
+	origin: "*",
 	type: "POST"
 	})
 		.done(function(data)	{
-			console.log(data);	
+			programs = data.ProgramList.Programs;
+			console.log(programs.length + " recordings");	
 		});
 }
 </script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<style>
+td {
+  white-space: nowrap;
+}
+</style>
 </head>
 <body onload="getRecordings();">
 <h1>MythTV Recordings</h1>
+<div ng-controller="RecordingsController">
+    <div loading-indicator style='position:absolute;left:5px;top:5px;background-color:red;color:white;'></div>
+    <input ng-model="searchText" title="Filter text">{{recordingsFiltered.length}} recordings
+    <table>
+      <tr>
+        <th><a href="" ng-click="recordingsPredicate = 'Airdate'; reverse=!reverse" style="color: white;" title="Click to sort">Air<br>date</a></th>
+        <th><a href="" ng-click="recordingsPredicate = 'Title'; reverse=!reverse" style="color: white;" title="Click to sort">Title</a></th>
+        <th><a href="" ng-click="recordingsPredicate = 'Category'; reverse=!reverse" style="color: white;" title="Click to sort">Category</a></th>
+        <th><a href="" ng-click="recordingsPredicate = '[Season,Episode,Title]'; reverse=!reverse" style="color: white;" title="Click to sort">Season<br>Episode</a></th>
+      </tr>
+      <tr ng-repeat="recording in recordingsFiltered = (recordings | orderBy:recordingsPredicate:reverse | filter:searchText)">
+        <td>{{recording.Airdate}}</td>
+        <td>{{recording.Title}}</td>
+        <td>{{recording.Category}}</td>
+        <td>{{recording.Season}}x{{recording.Episode}}</td>
+      </tr>
+    </table>
+</div>
+ 
+
 </body>
 </html>
