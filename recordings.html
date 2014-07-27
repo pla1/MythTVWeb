@@ -8,8 +8,9 @@ var PORT=6544;
 var RECORDINGS_PATH="/Dvr/GetRecordedList";
 function getRecordings() {
   $.ajax({
-	url: "http://"+$BACKEND+":"+$PORT+$RECORDINGS_PATH, 
-	type: "POST",
+	url: "http://"+BACKEND+":"+PORT+RECORDINGS_PATH, 
+	dataType: "json",
+	type: "POST"
 	})
 		.done(function(data)	{
 			console.log(data);	
