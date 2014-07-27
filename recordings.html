@@ -1,26 +1,8 @@
 <!doctype html>
 <html data-ng-app="mythTVWebModule">
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
 <script src="js/controllers.js"></script>
-<script>
-var BACKEND="server0.pla.lcl";
-var PORT=6544;
-var RECORDINGS_PATH="/Dvr/GetRecordedList";
-function getRecordings() {
-  $.ajax({
-	url: "http://"+BACKEND+":"+PORT+RECORDINGS_PATH, 
-	dataType: "json",
-	origin: "*",
-	type: "POST"
-	})
-		.done(function(data)	{
-			programs = data.ProgramList.Programs;
-			console.log(programs.length + " recordings");	
-		});
-}
-</script>
 <link rel="stylesheet" type="text/css" href="style.css">
 <style>
 td {
