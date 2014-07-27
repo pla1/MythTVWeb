@@ -1,0 +1,23 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
+<script>
+var BACKEND="server0.pla.lcl";
+var PORT=6544;
+var RECORDINGS_PATH="/Dvr/GetRecordedList";
+function getRecordings() {
+  $.ajax({
+	url: "http://"+$BACKEND+":"+$PORT+$RECORDINGS_PATH, 
+	type: "POST",
+	})
+		.done(function(data)	{
+			console.log(data);	
+		});
+}
+</script>
+</head>
+<body onload="getRecordings();">
+<h1>MythTV Recordings</h1>
+</body>
+</html>
