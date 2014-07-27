@@ -4,7 +4,6 @@ var PORT=6544;
 var RECORDINGS_PATH="/Dvr/GetRecordedList";
 
 mythTVWebApp.config(function($httpProvider) {
-
 	$httpProvider.interceptors.push(function($q, $rootScope) {
 		return {
 			'request' : function(config) {

@@ -1,4 +1,4 @@
 MythTVWeb
 =========
 
-MythTV Web
+MythTV Web alternative web frontend. Uses AngularJS. 
