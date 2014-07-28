@@ -1,6 +1,4 @@
-var mythTVWebApp = angular.module('mythTVWebModule', ['ngRoute']);
-var BACKEND="server0.pla.lcl";
-var PORT=6544; 
+var mythTVWebApp = angular.module('mythTVWebModule', []);
 var RECORDINGS_PATH="/Dvr/GetRecordedList";
 
 mythTVWebApp.config(function($httpProvider) {
@@ -47,7 +45,7 @@ mythTVWebApp.controller('RecordingsController', [
 		'$http',
 		function($scope, $http) {
 			$scope.loadData = function() {
-				$http.post('http://'+BACKEND+':'+PORT+RECORDINGS_PATH).success(
+				$http.post(RECORDINGS_PATH).success(
 						function(data) {
 							$scope.recordings = data.ProgramList.Programs;
 						});
