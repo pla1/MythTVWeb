@@ -50,6 +50,10 @@ mythTVWebApp.controller('RecordingsController', [
 							$scope.recordings = data.ProgramList.Programs;
 						});
 			}
+			$scope.playOnXbmc = function() {
+				alert("test");
+			}
 			$scope.loadData();
 			$scope.recordingsPredicate = '-AirDate';
-		} ]);
+		}
+ ]);
