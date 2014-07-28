@@ -34,7 +34,7 @@ td {
       </tr>
       <tr ng-repeat="recording in recordingsFiltered = (recordings | orderBy:recordingsPredicate:reverse | filter:searchText)">
         <td>{{recording.Airdate}}</td>
-        <td><a href='/Content/GetRecording?StartTime={{recording.StartTime}}&ChanId={{recording.Channel.ChanId}}' title='Click to download recording' target=recording>{{recording.Title}}</a> <button onclick='playOnXbmc(recording);'>XBMC</button></td>
+        <td><a href='/Content/GetRecording?StartTime={{recording.StartTime}}&ChanId={{recording.Channel.ChanId}}' title='Click to download recording' target=recording>{{recording.Title}}</a> <button onclick='playOnXbmc({{recording}});'>XBMC</button></td>
         <td>{{recording.Category}}</td>
         <td>{{recording.Season}}x{{recording.Episode}}</td>
       </tr>
