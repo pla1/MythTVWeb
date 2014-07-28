@@ -52,7 +52,7 @@ mythTVWebApp.controller('RecordingsController', [
 			}
 			$scope.playOnXbmc = function(recording) {
 				var xbmcURL = "http://i3c.pla.lcl:8080/jsonrpc";
-				var recordUrl = '/Content/GetRecording?StartTime='+recording.StartTime+'&ChanId='+recording.Channel.ChanId;
+				var recordingUrl = '/Content/GetRecording?StartTime='+recording.StartTime+'&ChanId='+recording.Channel.ChanId;
 				var request = $http({
 					method: "post",
 					url: xbmcURL,
