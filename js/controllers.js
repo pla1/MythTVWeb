@@ -50,8 +50,14 @@ mythTVWebApp.controller('RecordingsController', [
 							$scope.recordings = data.ProgramList.Programs;
 						});
 			}
-			$scope.playOnXbmc = function() {
-				alert("test");
+			$scope.playOnXbmc = function(recording) {
+				var xbmcURL = "http://i3c.pla.lcl:8080/jsonrpc";
+				var recordUrl = '/Content/GetRecording?StartTime='+recording.StartTime+'&ChanId='+recording.Channel.ChanId;
+				var request = $http({
+					method: "post",
+					url: xbmcURL,
+					data: {"jsonrpc": "2.0", "method": "Player.Open", "params":{"item":{ "file" : recordingUrl}}}
+				});
 			}
 			$scope.loadData();
 			$scope.recordingsPredicate = '-AirDate';
