@@ -2,6 +2,7 @@
 <html data-ng-app="mythTVWebModule">
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular-route.js"></script>
 <script src="js/controllers.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css">
 <style>
@@ -10,7 +11,7 @@ td {
 }
 </style>
 </head>
-<body onload="getRecordings();">
+<body>
 <h1>MythTV Recordings</h1>
 <div ng-controller="RecordingsController">
     <div loading-indicator style='position:absolute;left:5px;top:5px;background-color:red;color:white;'></div>
