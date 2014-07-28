@@ -9,7 +9,7 @@ function playOnXbmc(recordingUrl) {
 	var request = $http({
 		method: "post",
 		url: xbmcURL,
-		data: '{"jsonrpc": "2.0", "method": "Player.Open", "params":{"item":{ "file" : '+recordingUrl+'}}}'
+		data: {"jsonrpc": "2.0", "method": "Player.Open", "params":{"item":{ "file" : recordingUrl}}}
 	});
 }
 </script>
