@@ -18,14 +18,14 @@ td {
     <input ng-model="searchText" title="Filter text">{{recordingsFiltered.length}} recordings
     <table>
       <tr>
-        <th><a href="" ng-click="recordingsPredicate = '-Airdate'; reverse=!reverse" style="color: white;" title="Click to sort">Air<br>date</a></th>
+        <th><a href="" ng-click="recordingsPredicate = '-StartTime'; reverse=!reverse" style="color: white;" title="Click to sort">Start<br>date</a></th>
         <th><a href="" ng-click="recordingsPredicate = 'Title'; reverse=!reverse" style="color: white;" title="Click to sort">Title</a></th>
         <th><a href="" ng-click="recordingsPredicate = 'Category'; reverse=!reverse" style="color: white;" title="Click to sort">Category</a></th>
         <th><a href="" ng-click="recordingsPredicate = '[Season,Episode,Title]'; reverse=!reverse" style="color: white;" title="Click to sort">Season<br>Episode</a></th>
       </tr>
       <tr ng-repeat="recording in recordingsFiltered = (recordings | orderBy:recordingsPredicate:reverse | filter:searchText)">
-        <td>{{recording.Airdate}}</td>
-        <td><a href='/Content/GetRecording?StartTime={{recording.StartTime}}&ChanId={{recording.Channel.ChanId}}' title='Click to download recording'>{{recording.Title}}</a><!-- <button ng-click="playOnXbmc(recording)"	>XBMC</button>--></td>
+	<td>{{recording.StartTime | date : 'EEE MMM d, yyyy h:mm a'}}</td>
+        <td><a href='/Content/GetRecording?StartTime={{recording.StartTime}}&ChanId={{recording.Channel.ChanId}}' title='Click to download recording. {{recording.SubTitle}}''>{{recording.Title}}</a></td>
         <td>{{recording.Category}}</td>
         <td>{{recording.Season}}x{{recording.Episode}}</td>
       </tr>

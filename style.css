@@ -1,6 +1,6 @@
 body, html {font-family:Verdana;}
 table {border-collapse: collapse;border: thin solid gray;}
-th {background-color:navy;}
+th {background-color:navy;text-align:left}
 td {background-color:silver;}
 A {text-decoration: none}
 A:link { color: blue }

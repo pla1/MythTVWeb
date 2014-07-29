@@ -50,7 +50,7 @@ mythTVWebApp.controller('RecordingsController', [
 						});
 			}
 
-			$scope.recordingsPredicate = '-Airdate';
+			$scope.recordingsPredicate = '-StartTime';
 			$scope.loadData();
 		}
 
