@@ -1,5 +1,4 @@
 var mythTVWebApp = angular.module('mythTVWebModule', []);
-var RECORDINGS_PATH="/Dvr/GetRecordedList";
 
 mythTVWebApp.config(function($httpProvider) {
 	$httpProvider.interceptors.push(function($q, $rootScope) {
@@ -45,21 +44,15 @@ mythTVWebApp.controller('RecordingsController', [
 		'$http',
 		function($scope, $http) {
 			$scope.loadData = function() {
-				$http.post(RECORDINGS_PATH).success(
+				$http.post("/Dvr/GetRecordedList").success(
 						function(data) {
 							$scope.recordings = data.ProgramList.Programs;
 						});
 			}
-			$scope.playOnXbmc = function(recording) {
-				var xbmcURL = "http://i3c.pla.lcl:8080/jsonrpc";
-				var recordingUrl = '/Content/GetRecording?StartTime='+recording.StartTime+'&ChanId='+recording.Channel.ChanId;
-				var request = $http({
-					method: "post",
-					url: xbmcURL,
-					data: {"jsonrpc": "2.0", "method": "Player.Open", "params":{"item":{ "file" : recordingUrl}}}
-				});
-			}
+
+			$scope.recordingsPredicate = '-Airdate';
 			$scope.loadData();
-			$scope.recordingsPredicate = '-AirDate';
 		}
+
+
  ]);
