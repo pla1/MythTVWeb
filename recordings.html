@@ -15,7 +15,7 @@ td {
 <h1>MythTV Recordings</h1>
 <div ng-controller="RecordingsController">
     <div loading-indicator style='position:absolute;left:5px;top:5px;background-color:red;color:white;'></div>
-    <input ng-model="searchText" title="Filter text">{{recordingsFiltered.length}} recordings
+    <input ng-model="searchText" title="Filter text">{{recordingsFiltered.length}} recordings &nbsp;&nbsp;<a href="" ng-click="loadData()">Refresh</a>
     <table>
       <tr>
         <th><a href="" ng-click="recordingsPredicate = '-StartTime'; reverse=!reverse" style="color: white;" title="Click to sort">Start<br>date</a></th>

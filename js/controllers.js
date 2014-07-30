@@ -56,3 +56,21 @@ mythTVWebApp.controller('RecordingsController', [
 
 
  ]);
+mythTVWebApp.controller('LiveTVController', [
+		'$scope',
+		'$http',
+		function($scope, $http) {
+			$scope.loadData = function() {
+				$http.post("/Guide/GetProgramGuide?StartTime=2014-07-29T21:14:00&EndTime=2014-07-29T21:14:00").success(
+						function(data) {
+							$scope.channels = data.ProgramGuide.Channels;
+							console.log($scope.channels.length);
+						});
+			}
+
+			$scope.predicate = 'ChanNum';
+			$scope.loadData();
+		}
+
+
+ ]);

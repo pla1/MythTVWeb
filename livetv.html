@@ -1,0 +1,37 @@
+<!doctype html>
+<html data-ng-app="mythTVWebModule">
+<head>
+<script src="js/angular.min.js"></script>
+<script src="js/controllers.js"></script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+<style>
+td {
+  white-space: nowrap;
+}
+</style>
+</head>
+<body>
+<h1>MythTV Live TV</h1>
+<div ng-controller="LiveTVController">
+    <div loading-indicator style='position:absolute;left:5px;top:5px;background-color:red;color:white;'></div>
+    <input ng-model="searchText" title="Filter text">{{channelsFiltered.length}} channels &nbsp;&nbsp;<a href="" ng-click="loadData()">Refresh</a>
+    <table>
+      <tr>
+        <th><a href="" ng-click="predicate = 'ChanNum'; reverse=!reverse" style="color: white;" title="Click to sort">Channel<br>number</a></th>
+        <th><a href="" ng-click="predicate = 'CallSign'; reverse=!reverse" style="color: white;" title="Click to sort">Call<br>sign</a></th>
+        <th><a href="" ng-click="predicate = 'ChannelName'; reverse=!reverse" style="color: white;" title="Click to sort">Channel<br>Name</a></th>
+        <th><a href="" ng-click="predicate = 'Programs[0].Title'; reverse=!reverse" style="color: white;" title="Click to sort">Title</a></th>
+      </tr>
+      <tr ng-repeat="channel in channelsFiltered = (channels | orderBy:predicate:reverse | filter:searchText)">
+	<td>{{channel.ChanNum}}</td>
+        <td>{{channel.CallSign}}</td>
+        <td>{{channel.ChannelName}}</td>
+        <td><a href='/Content/AddRecordingLiveStream?ChanId={{channel.ChanId}}&StartTime={{channel.Programs[0].StartTime}}' title='Click to watch. {{channel.Programs[0].SubTitle}}''>{{channel.Programs[0].Title}}</a></td>
+      </tr>
+    </table>
+</div>
+ 
+
+</body>
+</html>
