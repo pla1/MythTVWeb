@@ -1,8 +1,10 @@
 <!doctype html>
 <html data-ng-app="mythTVWebModule">
 <head>
-<script src="js/angular.min.js"></script>
+<script src="js/moment.js"></script>
+<script src="js/angular.js"></script>
 <script src="js/controllers.js"></script>
+
 
 <link rel="stylesheet" type="text/css" href="style.css">
 <style>
@@ -27,7 +29,7 @@ td {
 	<td>{{channel.ChanNum}}</td>
         <td>{{channel.CallSign}}</td>
         <td>{{channel.ChannelName}}</td>
-        <td><a href='/Content/AddRecordingLiveStream?ChanId={{channel.ChanId}}&StartTime={{channel.Programs[0].StartTime}}' title='Click to watch. {{channel.Programs[0].SubTitle}}''>{{channel.Programs[0].Title}}</a></td>
+        <td>{{channel.Programs[0].Title}}</td>
       </tr>
     </table>
 </div>

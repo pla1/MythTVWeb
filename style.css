@@ -5,6 +5,7 @@ td {background-color:silver;}
 A {text-decoration: none}
 A:link { color: blue }
 A:visited { color: navy }
-A:active { color: red  }
-A:hover { background: red ; text-decoration: underline }
+A:active { color: red;background-color:yellow;  }
+A:hover { background-color: red ; text-decoration: underline }
+td { white-space: nowrap; }
 

@@ -43,15 +43,46 @@ mythTVWebApp.controller('RecordingsController', [
 		'$scope',
 		'$http',
 		function($scope, $http) {
-			$scope.loadData = function() {
+			$scope.loadRecordings = function() {
 				$http.post("/Dvr/GetRecordedList").success(
 						function(data) {
 							$scope.recordings = data.ProgramList.Programs;
 						});
 			}
-
+			$scope.loadStreams = function() {
+				$http.post("/Content/GetLiveStreamList").success(
+						function(data) {
+							$scope.streams = data.LiveStreamInfoList.LiveStreamInfos;
+							console.log(JSON.stringify($scope.streams));
+						});
+			}
+			$scope.actionToTake='raw';
 			$scope.recordingsPredicate = '-StartTime';
-			$scope.loadData();
+			$scope.streamsPredicate = 'StatusStr';
+			$scope.loadRecordings();
+			$scope.loadStreams();
+			window.setInterval($scope.loadStreams,1000*15);
+			$scope.handleRecording = function(recording) {
+				console.log("Handing recording: "+JSON.stringify(recording));
+				if ($scope.actionToTake=='raw') {
+					url = "/Content/GetRecording?StartTime="+recording.StartTime+"&ChanId="+recording.Channel.ChanId;
+					window.location.href=url;
+				}
+				if ($scope.actionToTake=='transcode') {
+                                        $http.post('/Content/AddRecordingLiveStream?ChanId='+recording.Channel.ChanId+'&StartTime='+recording.StartTime).success(function(data) {$scope.loadStreams();});
+				}
+			}
+			$scope.stopStream = function(stream) {
+				console.log("Stopping stream: " + JSON.stringify(stream));
+				$http.post('/Content/StopLiveStream?Id='+stream.Id).success(function(data) {$scope.loadStreams();});
+				$scope.loadStreams();
+			}
+			$scope.deleteStream = function(stream) {
+				console.log("Deleting stream: " + JSON.stringify(stream));
+				$http.post('/Content/RemoveLiveStream?Id='+stream.Id).success(function(data) {$scope.loadStreams();});
+				
+			}
+
 		}
 
 
@@ -61,7 +92,8 @@ mythTVWebApp.controller('LiveTVController', [
 		'$http',
 		function($scope, $http) {
 			$scope.loadData = function() {
-				$http.post("/Guide/GetProgramGuide?StartTime=2014-07-29T21:14:00&EndTime=2014-07-29T21:14:00").success(
+				var dateString = moment().format('YYYY-MM-DDTHH:MM:ss')
+				$http.post("/Guide/GetProgramGuide?StartTime="+dateString+"&EndTime="+dateString).success(
 						function(data) {
 							$scope.channels = data.ProgramGuide.Channels;
 							console.log($scope.channels.length);
