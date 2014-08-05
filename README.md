@@ -24,17 +24,17 @@ Modern browser with Javascript enabled.
 2. cd /usr/share/mythtv/html/
 3. sudo git clone https://github.com/pla1/MythTVWeb.git
 
-### How to use on client
+### How to use on any client
 
 Open a modern browser to http://**YourMythTVBackendIPAddress**:6544/MythTVWeb/
 
-### Consuming media on an Android device 
+### Consuming media on an Android client 
 
 * Watch raw recordings or transcoded streams on your favorite media player like [MX Player](https://play.google.com/store/apps/details?id=com.mxtech.videoplayer.ad&hl=en)
 * Watch transcoded streams on [Chrome for Android](https://play.google.com/store/apps/details?id=com.android.chrome&hl=en)
 * Throw raw recordings or transcoded streams to an [XBMC](http://xbmc.org/) frontend using [Yatse](https://play.google.com/store/apps/details?id=org.leetzone.android.yatsewidgetfree&hl=en)
 
-### Consuming media on a Linux machine
+### Consuming media on a Linux client
 
 * Download recordings
 * Watch raw recordings in mplayer, VLC, etc...
