@@ -37,7 +37,7 @@ Open a modern browser to http://**YourMythTVBackendIPAddress**:6544/MythTVWeb/
 ### Consuming media on a Linux client
 
 * Download recordings
-* Watch raw recordings in mplayer, VLC, etc...
+* Watch raw recordings in [mplayer](https://en.wikipedia.org/wiki/MPlayer), [VLC](https://www.videolan.org), etc...
 * Watch transcoded streams in VLC
 
 ### Disclaimer
