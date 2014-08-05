@@ -21,7 +21,7 @@
 	  <th style="color: white;">Delete</th>
         </tr>
         <tr ng-repeat="stream in streams | orderBy:streamsPredicate:streamsReverse">
-          <td><a href="{{stream.FullURL}}" title="Play stream">{{stream.Id}}</a></td>
+          <td><a href="{{stream.FullURL}}" title="Play stream">{{stream.Id}} {{getTitleFromLocalStorage(stream.Id)}}</a></td>
           <td style="text-align:center">{{stream.PercentComplete}}</td>
           <td>{{stream.StatusStr}}</td>
           <td style="text-align:center"><a href ng-click="stopStream(stream)" title="Stop generating this stream">S</a></td>

@@ -53,8 +53,13 @@ mythTVWebApp.controller('RecordingsController', [
 				$http.post("/Content/GetLiveStreamList").success(
 						function(data) {
 							$scope.streams = data.LiveStreamInfoList.LiveStreamInfos;
-							console.log(JSON.stringify($scope.streams));
+							console.log($scope.streams.length+" streams loaded");
 						});
+			}
+			$scope.getTitleFromLocalStorage = function(streamId) {
+				var title = localStorage.getItem("titleForStreamId"+streamId);
+				console.log("Retrieved title for titleForStreamId"+streamId+" TITLE: " + title);
+				return title;
 			}
 			$scope.actionToTake='raw';
 			$scope.recordingsPredicate = '-StartTime';
@@ -62,6 +67,7 @@ mythTVWebApp.controller('RecordingsController', [
 			$scope.loadRecordings();
 			$scope.loadStreams();
 			window.setInterval($scope.loadStreams,1000*15);
+			console.log("Timer started for loading of streams");
 			$scope.handleRecording = function(recording) {
 				console.log("Handing recording: "+JSON.stringify(recording));
 				if ($scope.actionToTake=='raw') {
@@ -69,7 +75,13 @@ mythTVWebApp.controller('RecordingsController', [
 					window.location.href=url;
 				}
 				if ($scope.actionToTake=='transcode') {
-                                        $http.post('/Content/AddRecordingLiveStream?ChanId='+recording.Channel.ChanId+'&StartTime='+recording.StartTime).success(function(data) {$scope.loadStreams();});
+                                        $http.post('/Content/AddRecordingLiveStream?ChanId='+recording.Channel.ChanId+'&StartTime='+recording.StartTime).
+						success(function(data) {
+							console.log("Storing to local storage: titleForStreamId"+data.LiveStreamInfo.Id+" "+recording.Title);
+							localStorage.setItem("titleForStreamId"+data.LiveStreamInfo.Id,recording.Title);
+							$scope.loadStreams();
+						}
+					);
 				}
 			}
 			$scope.stopStream = function(stream) {
