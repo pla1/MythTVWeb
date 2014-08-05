@@ -13,8 +13,8 @@ Modern browser with Javascript enabled.
 
 * Table of your recordings. 
 * Download raw recordings. 
+* Start, stop, delete or view streams. 
 * Table of transcoded streams. 
-* View, stop, or delete streams. 
 * Tables are sortable. 
 * Recordings table is filterable. 
 
@@ -26,10 +26,22 @@ Modern browser with Javascript enabled.
 
 ### How to use on client
 
-1. Open a modern browser to http://**YourMythTVBackendIPAddress**:6544/MythTVWeb/
+Open a modern browser to http://**YourMythTVBackendIPAddress**:6544/MythTVWeb/
+
+### Consuming media on an Android device 
+
+* Watch raw recordings or transcoded streams on your favorite media player like [MX Player](https://play.google.com/store/apps/details?id=com.mxtech.videoplayer.ad&hl=en)
+* Watch transcoded streams on [Chrome for Android](https://play.google.com/store/apps/details?id=com.android.chrome&hl=en)
+* Throw raw recordings or transcoded streams to an [XBMC](http://xbmc.org/) frontend using [Yatse](https://play.google.com/store/apps/details?id=org.leetzone.android.yatsewidgetfree&hl=en)
+
+### Consuming media on a Linux machine
+
+* Download recordings
+* Watch raw recordings in mplayer, VLC, etc...
+* Watch transcoded streams in VLC
 
 ### Disclaimer
 
-I created this to scratch an itch. It is not an official project of MythTV. 
+I created this to itch a scratch. It is not an official project of MythTV. 
 
 
