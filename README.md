@@ -18,10 +18,10 @@ MythTV web frontend alternative. Uses [AngularJS](https://angularjs.org/) to dis
 * Tables are sortable. 
 * Recordings table is filterable. 
 
-### User Installation on a Debian based client
+### User Installation on a Debian based [MythTV](http://www.mythtv.org/) server
 
 1. sudo apt-get install git
-2. cd /usr/share/mythtv/html/
+2. cd /usr/share/mythtv/html/ _Check your server for the correct location. Perhaps search for file_ `menu.qsp`.
 3. sudo git clone https://github.com/pla1/MythTVWeb.git
 
 ### How to use on any client
@@ -43,5 +43,10 @@ Open a modern browser to http://**YourMythTVBackendIPAddress**:6544/MythTVWeb/
 ### Disclaimer
 
 I created this to scratch an itch. It is not an official project of MythTV. 
+
+### Screenshot
+
+![alt text](http://pla1.net/MythTVWeb.png "MythTVWeb Screenshot")
+
 
 
