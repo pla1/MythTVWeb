@@ -6,17 +6,17 @@ MythTV web frontend alternative. Uses [AngularJS](https://angularjs.org/) to dis
 
 ### Requirements
 
-MythTV server version .25 or better with services API enabled. 
+MythTV server version 0.25 or better with services API enabled. 
 Modern browser with Javascript enabled. 
 
 ### Features
 
-Table of your recordings. 
-Download raw recordings. 
-Table of transcoded streams. 
-View, stop, or delete streams. 
-Tables are sortable. 
-Recordings table is filterable. 
+* Table of your recordings. 
+* Download raw recordings. 
+* Table of transcoded streams. 
+* View, stop, or delete streams. 
+* Tables are sortable. 
+* Recordings table is filterable. 
 
 ### User Installation on a Debian based client
 
@@ -26,7 +26,7 @@ Recordings table is filterable.
 
 ### How to use on client
 
-1. Open your modern browser to http://YourMythTVBackend:6544/MythTVWeb/
+1. Open a modern browser to http://**YourMythTVBackendIPAddress**:6544/MythTVWeb/
 
 ### Disclaimer
 
