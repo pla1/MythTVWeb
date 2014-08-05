@@ -6,8 +6,8 @@ MythTV web frontend alternative. Uses [AngularJS](https://angularjs.org/) to dis
 
 ### Requirements
 
-MythTV server version 0.25 or better with services API enabled. 
-Modern browser with Javascript enabled. 
+* MythTV server version 0.25 or better with services API enabled. 
+* Modern browser with Javascript enabled. 
 
 ### Features
 
