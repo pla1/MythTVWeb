@@ -42,6 +42,6 @@ Open a modern browser to http://**YourMythTVBackendIPAddress**:6544/MythTVWeb/
 
 ### Disclaimer
 
-I created this to itch a scratch. It is not an official project of MythTV. 
+I created this to scratch an itch. It is not an official project of MythTV. 
 
 
