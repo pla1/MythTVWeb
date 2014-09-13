@@ -42,7 +42,7 @@
       </tr>
       <tr ng-repeat="recording in recordingsFiltered = (recordings | orderBy:recordingsPredicate:reverse | filter:searchText)">
 	<td>{{recording.StartTime | date : 'EEE MMM d, yyyy h:mm a'}}</td>
-        <td><a href ng-click="handleRecording(recording)" title="Click to download raw or transcode for stream {{recording.Title}} - {{recording.SubTitle}}">{{recording.Title}}</a></td>
+        <td><a href ng-click="handleRecording(recording)" title="Click to download raw or transcode for stream {{recording.Title}} - {{recording.SubTitle}} - {{recording.Description}} ">{{recording.Title}}</a></td>
         <td>{{recording.Category}}</td>
         <td>{{recording.Season}}x{{recording.Episode}}</td>
       </tr>
