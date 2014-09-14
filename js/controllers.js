@@ -74,6 +74,9 @@ mythTVWebApp.controller('RecordingsController', [
 					url = "/Content/GetRecording?StartTime="+recording.StartTime+"&ChanId="+recording.Channel.ChanId;
 					window.location.href=url;
 				}
+				if ($scope.actionToTake=='url') {
+					$scope.rawUrl = location.protocol+"//"+location.host+"/Content/GetRecording?StartTime="+recording.StartTime+"&ChanId="+recording.Channel.ChanId;
+				}
 				if ($scope.actionToTake=='transcode') {
                                         $http.post('/Content/AddRecordingLiveStream?ChanId='+recording.Channel.ChanId+'&StartTime='+recording.StartTime).
 						success(function(data) {
