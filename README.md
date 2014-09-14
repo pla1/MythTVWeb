@@ -48,5 +48,7 @@ I created this to scratch an itch. It is not an official project of MythTV.
 
 ![alt text](http://pla1.net/MythTVWeb.png "MythTVWeb Screenshot")
 
+![alt text](https://www.youtube.com/watch?v=YNruoTGfer4 "MythTVWeb YouTube Video")
+
 
 
