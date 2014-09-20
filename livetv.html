@@ -24,12 +24,14 @@ td {
         <th><a href="" ng-click="predicate = 'CallSign'; reverse=!reverse" style="color: white;" title="Click to sort">Call<br>sign</a></th>
         <th><a href="" ng-click="predicate = 'ChannelName'; reverse=!reverse" style="color: white;" title="Click to sort">Channel<br>Name</a></th>
         <th><a href="" ng-click="predicate = 'Programs[0].Title'; reverse=!reverse" style="color: white;" title="Click to sort">Title</a></th>
+        <th><a href="" ng-click="predicate = 'Programs[0].SubTitle'; reverse=!reverse" style="color: white;" title="Click to sort">Subtitle</a></th>
       </tr>
       <tr ng-repeat="channel in channelsFiltered = (channels | orderBy:predicate:reverse | filter:searchText)">
 	<td>{{channel.ChanNum}}</td>
         <td>{{channel.CallSign}}</td>
         <td>{{channel.ChannelName}}</td>
         <td>{{channel.Programs[0].Title}}</td>
+        <td>{{channel.Programs[0].SubTitle}}</td>
       </tr>
     </table>
 </div>
