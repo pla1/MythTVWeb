@@ -75,10 +75,10 @@ mythTVWebApp.controller('RecordingsController', [
 					window.location.href=url;
 				}
 				if ($scope.actionToTake=='url') {
-					$scope.rawUrl = location.protocol+"//"+location.host+"/Content/GetRecording?StartTime="+recording.StartTime+"&ChanId="+recording.Channel.ChanId;
+					$scope.rawUrl = location.protocol+"//"+location.host+"/Content/GetRecording?StartTime="+recording.Recording.StartTs+"&ChanId="+recording.Channel.ChanId;
 				}
 				if ($scope.actionToTake=='transcode') {
-                                        $http.post('/Content/AddRecordingLiveStream?ChanId='+recording.Channel.ChanId+'&StartTime='+recording.StartTime).
+                                        $http.post('/Content/AddRecordingLiveStream?ChanId='+recording.Channel.ChanId+'&StartTime='+recording.Recording.StartTs).
 						success(function(data) {
 							console.log("Storing to local storage: titleForStreamId"+data.LiveStreamInfo.Id+" "+recording.Title);
 							localStorage.setItem("titleForStreamId"+data.LiveStreamInfo.Id,recording.Title);
