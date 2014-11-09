@@ -97,6 +97,10 @@ mythTVWebApp.controller('RecordingsController', [
 				$http.post('/Content/RemoveLiveStream?Id='+stream.Id).success(function(data) {$scope.loadStreams();});
 				
 			}
+			$scope.hoverWork = function(recording) {
+				console.log("Hover Work: " + recording);
+				$scope.hoverTitle=recording.Title;
+                        }
 
 		}
 
