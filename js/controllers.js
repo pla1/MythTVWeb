@@ -71,8 +71,8 @@ mythTVWebApp.controller('RecordingsController', [
 			$scope.handleRecording = function(recording) {
 				console.log("Handing recording: "+JSON.stringify(recording));
 				if ($scope.actionToTake=='raw') {
-					url = "/Content/GetRecording?StartTime="+recording.StartTime+"&ChanId="+recording.Channel.ChanId;
-				//	window.location.href=url;
+					url = "/Content/GetRecording?StartTime="+recording.Recording.StartTs+"&ChanId="+recording.Channel.ChanId;
+					window.location.href=url;
 				}
 				if ($scope.actionToTake=='url') {
 					$scope.rawUrl = location.protocol+"//"+location.host+"/Content/GetRecording?StartTime="+recording.StartTime+"&ChanId="+recording.Channel.ChanId;
